@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: var(--c-background);
 }
 
 a {
@@ -13,4 +14,23 @@ a {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root{
+  --c-background: rgb(54, 54, 54);
+  --c-red: red;
+  
+  --fs-standard-small: .8rem;
+  --fs-standard: 1rem;
+  --fs-standard-large: 1.25rem;
+
+  --fs-heading-small: 1.536rem;
+  --fs-heading: 1.935rem;
+  --fs-heading-large: 2.441rem;
+
+  --fs-hero-small: 3.052rem;
+  --fs-hero: 3.815rem;
+  --fs-hero-large: 4.768rem;
 }

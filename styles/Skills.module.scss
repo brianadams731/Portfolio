@@ -1,0 +1,15 @@
+.hero{
+    text-align: center;
+    font-size: var(--fs-heading-large);
+    margin-bottom: 15px;
+}
+
+.skillGrid{
+    margin: auto;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px;
+    column-gap: 50px;
+    row-gap: 25px;
+    
+}

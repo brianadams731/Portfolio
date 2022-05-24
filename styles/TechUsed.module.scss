@@ -1,0 +1,50 @@
+$secondOffset: 15px;
+@keyframes distort {
+    0% {clip-path: polygon(0 101%, 100% 101%, 100% 102%, 0% 102%); }
+    80% { clip-path: polygon(0 101%, 100% 101%, 100% 102%, 0% 102%); }
+    100% { clip-path: polygon(0 0%, 100% 0%, 100% 1%, 0% 1%); }
+}
+
+.imgWrapper{
+    position: relative;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    height: 100px;
+    width: 100px;
+    img{
+        width: 100%;
+    }
+
+    .imgTwo{
+        position: absolute;
+        top:0;
+        left: 0;
+        height: 100%;
+        width: calc(100% + $secondOffset);
+        animation: distort 7s infinite linear;
+        
+        .filler{
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: $secondOffset;
+            background-color: var(--c-background);
+        }   
+        &>:nth-child(2){
+            /*These need to be important due to next/image being inline styled*/
+            overflow: visible !important;
+            left: $secondOffset !important;
+        }
+    }
+}
+
+.wrapper{
+    h5{
+        
+        font-size: var(--fs-standard-large);
+        text-align: center;
+        
+    }
+}
