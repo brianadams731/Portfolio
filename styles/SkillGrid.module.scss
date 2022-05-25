@@ -1,0 +1,8 @@
+.wrapper{
+    width: fit-content;
+    overflow: visible;
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px;
+    column-gap: 50px;
+    row-gap: 25px;
+}

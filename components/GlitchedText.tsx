@@ -17,9 +17,9 @@ const GlitchedText = ({ text }: Props): JSX.Element => {
         const determineNewState = setInterval(() => {
             const newGlitchState = glitchState.map(() => {
                 const rand = Math.random();               
-                if (rand < .9) {
+                if (rand < .86) {
                     return GlitchState.CENTER
-                } else if (rand < .95) {
+                } else if (rand < .93) {
                     console.log("LEFT");
                     return GlitchState.LEFT
                 } else {
@@ -29,8 +29,6 @@ const GlitchedText = ({ text }: Props): JSX.Element => {
                 }
             })            
             setGlitchState(newGlitchState);            
-            console.log(glitchState);
-            
         }, 300)
 
         return () => clearInterval(determineNewState);

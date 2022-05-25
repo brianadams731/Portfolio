@@ -1,4 +1,4 @@
-$glitchOffset: 1px;
+$glitchOffset: 1.5px;
 $glitchMidTop: 45%;
 $glitchMidBottom: 66%;
 
@@ -34,9 +34,16 @@ $glitchMidBottom: 66%;
     z-index: 1;
 }
 
+.text[data-glitch="left"]:not(.two), .text[data-glitch="left"]:not(.two){
+    text-shadow: 
+        0.019em 0 0 rgb(255, 0, 0),
+        -0.009em -0.019em 0 rgb(0, 255, 0),
+        0.009em 0.019em 0 rgb(0, 0, 255);
+}
+
 .text[data-glitch="left"]{
     transform: translateX($glitchOffset * -1);
 }
-.text[data-glitch="right"]{
+.text[data-glitch="left"]{
     transform: translateX($glitchOffset);
 }

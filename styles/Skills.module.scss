@@ -1,23 +1,48 @@
+$secondOffset: 15px;
+$duration: 5s;
+
+@keyframes distort {
+    0% {clip-path: polygon(0 101.1%, 100% 101.1%, 100% 101%, 0% 101%); }
+    83% { clip-path: polygon(0 101%, 100% 101%, 100% 102%, 0% 102%); }
+    100% { clip-path: polygon(0 -0.1%, 100% -0.1%, 100% 0%, 0% 0%); }
+}
+
 .wrapper{
+    position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+
 .hero{
     text-align: center;
     color: var(--c-heading-text);
     font-family: var(--font-mono-main);
     font-size: var(--fs-heading-large);
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
-.skillGrid{
-    width: fit-content;
-    display: grid;
-    grid-template-columns: 100px 100px 100px 100px 100px;
-    column-gap: 50px;
-    row-gap: 25px;
-    
+.gridWrapper{
+    position: relative;
+    .distortedGrid {
+        position: absolute;
+        top:0;
+        height: 100%;
+        width: calc(100% + $secondOffset);
+        animation: distort $duration infinite linear;
+        &>:nth-child(1){
+            padding-left: $secondOffset;
+        }
+        &::before{
+            content: "";
+            position: absolute;
+            left:0;
+            top:0;
+            height: 100%;
+            width: $secondOffset;
+            background-color: var(--c-background);
+        }
+    }
 }
