@@ -1,0 +1,20 @@
+.outterWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;  
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    h5{
+        color: var(--c-heading-text);
+        margin-top: -5px;
+        font-size: var(--fs-heading);
+        font-family: var(--font-mono-main);
+    }
+}

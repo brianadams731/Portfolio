@@ -19,8 +19,9 @@ a {
 }
 
 :root{
-  --c-background: rgb(54, 54, 54);
-  --c-red: red;
+  --c-background: rgb(34, 34, 34);
+  --c-heading-text: white;
+  --c-body-text: white;
   
   --fs-standard-small: .8rem;
   --fs-standard: 1rem;
@@ -33,4 +34,6 @@ a {
   --fs-hero-small: 3.052rem;
   --fs-hero: 3.815rem;
   --fs-hero-large: 4.768rem;
+
+  --font-mono-main: 'Noto Sans Mono', monospace;
 }

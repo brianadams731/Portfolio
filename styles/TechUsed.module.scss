@@ -41,10 +41,14 @@ $secondOffset: 15px;
 }
 
 .wrapper{
+    transition: transform .2s ease-in-out;
     h5{
-        
         font-size: var(--fs-standard-large);
+        font-family: var(--font-mono-main);
+        color: var(--c-body-text);
         text-align: center;
-        
+    }
+    &:hover{
+        transform: scale(1.1);
     }
 }

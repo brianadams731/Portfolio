@@ -11,10 +11,10 @@ const TechUsed = ({imgURL, name}:Props):JSX.Element => {
     return(
         <div className={styles.wrapper}>
             <div className={styles.imgWrapper}>
-                <Image layout="fill" src={imgURL} loader={noLoad} className={styles.imgOne} />
+                <Image layout="fill" src={imgURL} loader={noLoad} className={styles.imgOne} unoptimized />
                 <div className={styles.imgTwo}>
                     <div className={styles.filler}></div>
-                    <Image layout="fill" src={imgURL} loader={noLoad} className={styles.imgTwo} />
+                    <Image layout="fill" src={imgURL} loader={noLoad} className={styles.imgTwo} unoptimized />
                 </div>
             </div>
             <h5>{name}</h5>

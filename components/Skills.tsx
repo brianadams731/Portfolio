@@ -13,7 +13,7 @@ const Skills = () => {
 
 
                 <TechUsed imgURL="/logos/node.svg" name="Node" />
-                <TechUsed imgURL="/logos/node.svg" name="Express" />
+                <TechUsed imgURL="/logos/express.svg" name="Express" />
                 <TechUsed imgURL='/logos/jest.svg' name="Jest" />
                 <TechUsed imgURL='/logos/postgres.svg' name="Postgres" />
 
@@ -25,6 +25,7 @@ const Skills = () => {
                 <TechUsed imgURL="/logos/flask.svg" name="Flask" />
 
                 <TechUsed imgURL="/logos/java.svg" name="Java" />
+                <TechUsed imgURL="/logos/git.svg" name="Git" />
             </section>
         </div>
     )

@@ -1,0 +1,42 @@
+$glitchOffset: 1px;
+$glitchMidTop: 45%;
+$glitchMidBottom: 66%;
+
+.wrapper{
+    position: relative;
+    width: max-content;
+}
+.text{
+    color: var(--c-heading-text);
+    font-size: var(--fs-hero-large);
+    font-family: var(--font-mono-main);
+
+}
+
+.two, .three{
+    position: absolute;
+    top:0;
+    left: 0;
+}
+
+.one{
+    clip-path: polygon(0% 0%, 100% 0%, 100% $glitchMidTop, 0% $glitchMidTop);
+    z-index: 3;
+}
+
+.two{
+    clip-path: polygon(0% ($glitchMidTop - 5), 100% ($glitchMidTop - 5), 100% $glitchMidBottom, 0% $glitchMidBottom);
+    z-index: 2;
+}
+
+.three{
+    clip-path: polygon(0% ($glitchMidBottom - 5), 100% ($glitchMidBottom - 5), 100% 100%, 0% 100%);
+    z-index: 1;
+}
+
+.text[data-glitch="left"]{
+    transform: translateX($glitchOffset * -1);
+}
+.text[data-glitch="right"]{
+    transform: translateX($glitchOffset);
+}

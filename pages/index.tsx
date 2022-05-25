@@ -1,7 +1,9 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { GlitchedText } from '../components/GlitchedText';
 import { Skills } from '../components/Skills';
 import { TechUsed } from '../components/TechUsed';
+import { Title } from '../components/Title';
 import styles from '../styles/Home.module.scss';
 
 const Home: NextPage = () => {
@@ -13,6 +15,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Title />
         <Skills />
       </main>
     </div>
