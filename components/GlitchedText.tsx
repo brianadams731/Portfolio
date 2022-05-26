@@ -17,14 +17,11 @@ const GlitchedText = ({ text }: Props): JSX.Element => {
         const determineNewState = setInterval(() => {
             const newGlitchState = glitchState.map(() => {
                 const rand = Math.random();               
-                if (rand < .86) {
+                if (rand < .90) {
                     return GlitchState.CENTER
-                } else if (rand < .93) {
-                    console.log("LEFT");
+                } else if (rand < .95) {
                     return GlitchState.LEFT
-                } else {
-                    console.log("Right");
-                    
+                } else {                    
                     return GlitchState.RIGHT
                 }
             })            
