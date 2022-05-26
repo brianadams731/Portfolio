@@ -8,10 +8,10 @@ const Skills = () => {
     useEffect(()=>{
         const flicker = setInterval(()=>{
             const rand = Math.random();
-            if(rand > .95){                
+            if(rand > .94){                
                 wrapperRef.current?.animate([
                     {transform: "skewX(0)"},
-                    {transform: "skewX(-30deg)"},
+                    {transform: rand>.96?"skewX(-25deg)":"skew(25deg)"},
                     {transform: "skewX(0)"},                    
                 ],{duration:28})
             }
