@@ -1,0 +1,9 @@
+.projectWrapper{
+    margin-top: 50px;
+    .projectTitle{
+        color: var(--c-heading-text);
+        font-family: var(--font-mono-main);
+        font-size: var(--fs-heading-large);
+        text-align: center;
+    }
+}

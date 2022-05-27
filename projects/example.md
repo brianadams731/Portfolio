@@ -1,7 +1,7 @@
 ---
 title: Example
 status: Complete
-img: /logos/ts.svg
+img: /projects/sidescroller.jpg
 tech:
 - css
 - express
@@ -16,7 +16,7 @@ tech:
 - python
 - react
 - redux
-- sass
+- scss
 - typescript
 ---
 # This is a test

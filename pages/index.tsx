@@ -26,7 +26,10 @@ const Home = ({ projects }: Props): JSX.Element => {
             <main>
                 <Title />
                 <Skills />
-                {projects.map(project => <Project key={project.frontMatter.title} data={project} />)}
+                <div id="projects" className={styles.projectWrapper}>
+                    <h1 className={styles.projectTitle}>Projects</h1>
+                    {projects.map(project => <Project key={project.frontMatter.title} data={project} />)}
+                </div>
             </main>
         </div>
     );

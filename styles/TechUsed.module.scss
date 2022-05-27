@@ -1,14 +1,17 @@
 .imgWrapper{
     position: relative;
+    margin: auto;
     margin-bottom: 5px;
     height: 100px;
-    width: 100px;
+    width: 100%;
     img{
         width: 100%;
     }
 }
 
 .wrapper{
+    width: 100%;
+    max-width: 100px;
     transition: transform .2s ease-in-out;
     h5{
         font-size: var(--fs-standard-large);

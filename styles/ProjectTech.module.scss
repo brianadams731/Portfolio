@@ -1,0 +1,16 @@
+.wrapper{
+    display: flex;
+    margin: auto;
+    gap: 35px;
+    flex-wrap: wrap;
+
+    max-width: 75%;
+}
+
+.itemWrapper{
+    width: 70px;
+    h5{
+        margin-top: -5px;
+        font-size: var(--fs-standard-small);
+    }
+}

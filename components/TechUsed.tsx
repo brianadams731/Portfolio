@@ -13,7 +13,7 @@ const TechUsed = ({name}:Props):JSX.Element => {
     const [ref] = useTech();
     const wrapperRef = useRef<HTMLDivElement>(null);
     
-    useEffect(()=>{
+    useEffect(()=>{        
         const flicker = setInterval(()=>{
             const rand = Math.random();
             if(rand > .98){                
@@ -27,12 +27,15 @@ const TechUsed = ({name}:Props):JSX.Element => {
         return ()=> clearInterval(flicker);
     },[])
 
+    if(!ref.current[name]?.imgURL){
+        return <div>{name}</div>
+    }
     return(
         <div className={styles.wrapper} ref={wrapperRef}>
             <div className={styles.imgWrapper}>
-                <Image layout="fill" src={ref.current[name].imgURL} loader={noLoad} className={styles.imgOne} unoptimized />
+                <Image layout="fill" objectFit="contain" src={ref.current[name]?.imgURL} loader={noLoad} className={styles.imgOne} unoptimized />
             </div>
-            <h5>{ref.current[name].title}</h5>
+            <h5>{ref.current[name]?.title}</h5>
         </div>
     )
 }
