@@ -2,13 +2,15 @@ import Image from "next/image";
 import { noLoad } from "../utils/imgLoaders";
 import styles from "../styles/TechUsed.module.scss";
 import { useEffect, useRef } from "react";
+import { useTech } from "../hooks/useTech";
 
 interface Props{
-    imgURL:string;
     name: string;
 }
 
-const TechUsed = ({imgURL, name}:Props):JSX.Element => {
+
+const TechUsed = ({name}:Props):JSX.Element => {
+    const [ref] = useTech();
     const wrapperRef = useRef<HTMLDivElement>(null);
     
     useEffect(()=>{
@@ -28,9 +30,9 @@ const TechUsed = ({imgURL, name}:Props):JSX.Element => {
     return(
         <div className={styles.wrapper} ref={wrapperRef}>
             <div className={styles.imgWrapper}>
-                <Image layout="fill" src={imgURL} loader={noLoad} className={styles.imgOne} unoptimized />
+                <Image layout="fill" src={ref.current[name].imgURL} loader={noLoad} className={styles.imgOne} unoptimized />
             </div>
-            <h5>{name}</h5>
+            <h5>{ref.current[name].title}</h5>
         </div>
     )
 }
