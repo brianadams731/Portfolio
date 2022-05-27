@@ -5,17 +5,13 @@ import styles from '../styles/Home.module.scss';
 
 import { getAllFilesInDir, parseProjectMd } from '../src/parseProjectMd';
 import type { FileData } from '../src/parseProjectMd';
-import { useEffect } from 'react';
+import { Project } from '../components/Project';
 
 interface Props {
     projects: FileData[];
 }
 
 const Home = ({ projects }: Props): JSX.Element => {
-
-    useEffect(() => {
-        console.log(projects);
-    }, [])
 
     return (
         <div className={styles.wrapper}>
@@ -30,6 +26,7 @@ const Home = ({ projects }: Props): JSX.Element => {
             <main>
                 <Title />
                 <Skills />
+                {projects.map(project => <Project key={project.frontMatter.title} data={project} />)}
             </main>
         </div>
     );
