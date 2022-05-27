@@ -25,7 +25,7 @@ const NavBar = (): JSX.Element => {
 
     useEffect(() => {
         console.log(router.asPath);
-        if (router.asPath.includes("home") || router.asPath == "/") {
+        if (router.asPath.includes("home")) {
             setCurrentLoc(Selection.HOME);
         } else if (router.asPath.includes("skills")) {
             setCurrentLoc(Selection.SKILLS);
@@ -33,6 +33,8 @@ const NavBar = (): JSX.Element => {
             setCurrentLoc(Selection.PROJECTS);
         } else if (router.asPath.includes("contact")) {
             setCurrentLoc(Selection.CONTACT);
+        }else{
+            setCurrentLoc(Selection.HOME);
         }
     }, [router.asPath])
 
