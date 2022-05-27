@@ -25,7 +25,7 @@ const NavBar = (): JSX.Element => {
 
     useEffect(() => {
         console.log(router.asPath);
-        if (router.asPath.includes("home")) {
+        if (router.asPath.includes("home") || router.asPath == "/") {
             setCurrentLoc(Selection.HOME);
         } else if (router.asPath.includes("skills")) {
             setCurrentLoc(Selection.SKILLS);
