@@ -5,7 +5,7 @@ import { Terrain } from "./Terrain";
 
 const Title = ():JSX.Element =>{
     return (
-        <div className={styles.outerWrapper}>
+        <div className={styles.outerWrapper} id="home">
             <Terrain />
             <section className={styles.wrapper}>
                 <GlitchedText text="Brian Adams" />
