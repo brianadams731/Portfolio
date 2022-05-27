@@ -4,7 +4,7 @@ import {marked} from "marked";
 
 interface IProjectFrontMatter{
     title: string;
-    completed: boolean;
+    status: string;
     img: string;
     tech: string[];
 }

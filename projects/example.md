@@ -1,6 +1,6 @@
 ---
 title: Example
-completed: true
+status: Complete
 img: /logos/ts.svg
 tech:
 - css
