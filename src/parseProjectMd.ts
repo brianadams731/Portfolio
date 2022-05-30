@@ -18,7 +18,7 @@ const getAllFilesInDir = async (dirPath:string) =>{
     filePaths = filePaths.map((file: string) => {
         return `${dirPath}${file}`;
     });
-    filePaths = filePaths.filter(item => !item.includes("example.md"));
+    filePaths = filePaths.filter(item => !item.includes(".ignore."));
     return filePaths;
 }
 

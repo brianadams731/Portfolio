@@ -15,8 +15,8 @@ const ProjectTech = ({ names }: Props): JSX.Element => {
         <section className={styles.wrapper}>
             {names.map(item => {
                 return (
-                    <div className={styles.itemWrapper}>
-                        <TechUsed key={item} name={item} />
+                    <div key={item} className={styles.itemWrapper}>
+                        <TechUsed name={item} />
                     </div>
                 )
             })}
