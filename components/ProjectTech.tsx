@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import styles from "../styles/ProjectTech.module.scss";
 import { TechUsed } from "./TechUsed";
 
@@ -7,10 +6,6 @@ interface Props {
 }
 
 const ProjectTech = ({ names }: Props): JSX.Element => {
-    useEffect(() => {
-        console.log(names);
-    }, [])
-
     return (
         <section className={styles.wrapper}>
             {names.map(item => {
