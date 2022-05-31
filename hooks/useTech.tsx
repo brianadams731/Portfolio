@@ -60,7 +60,7 @@ const useTech = (): [MutableRefObject<MappedObj>] => {
         },
         flask: {
             imgURL: "/logos/flask.svg",
-            title: "flask"
+            title: "Flask"
         },
         java: {
             imgURL: "/logos/java.svg",

@@ -1,3 +1,5 @@
+@use "terminal";
+
 .projectWrapper{
     margin-top: 50px;
     .projectTitle{
@@ -5,5 +7,7 @@
         font-family: var(--font-mono-main);
         font-size: var(--fs-heading-large);
         text-align: center;
+
+        @extend %terminal-title;
     }
 }

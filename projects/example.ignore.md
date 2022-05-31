@@ -2,6 +2,8 @@
 title: Example
 status: Complete
 img: /projects/sidescroller.jpg
+url: https://www.google.com/
+githubRepo: https://www.google.com/
 tech:
 - css
 - express

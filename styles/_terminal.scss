@@ -1,0 +1,41 @@
+%terminal-title {
+    color: var(--c-terminal-text);
+    text-shadow: 0 0 5px var(--c-terminal-text-blur);
+}
+
+%terminal-text {
+    color: var(--c-terminal-text);
+    text-shadow: 0 0 2px var(--c-terminal-text-blur);
+}
+
+%terminal-outline{
+    box-shadow: 0 0 2px var(--c-terminal-text-blur);
+}
+
+%terminal-lines {
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(var(--c-background-open), 0.15),
+        rgba(var(--c-background-open), 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+}
+
+%terminal-lines-pseudo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    height: 100%;
+    width: 100%;
+    @extend %terminal-lines;
+}
+
+%terminal-title-with-lines {
+    position: relative;
+    @extend %terminal-title;
+    &::after {
+        @extend %terminal-lines-pseudo
+    }
+}

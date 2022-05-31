@@ -1,3 +1,5 @@
+@use "terminal";
+
 $secondOffset: 15px;
 $duration: 5s;
 
@@ -13,19 +15,6 @@ $duration: 5s;
     }
 }
 
-/*
-@keyframes flicker {
-    0% {
-        transform: skewX(0);
-    }
-    1% {
-        transform: skewX(-20deg);
-    }
-    2% {
-        transform: skewX(0);
-    }
-}
-*/
 
 .wrapper {
     position: relative;
@@ -44,6 +33,8 @@ $duration: 5s;
     font-family: var(--font-mono-main);
     font-size: var(--fs-heading-large);
     margin-bottom: 25px;
+
+    @extend %terminal-title;
 }
 
 .gridWrapper {

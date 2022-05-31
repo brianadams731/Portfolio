@@ -26,9 +26,12 @@ ul{
 
 :root{
   --c-background: rgb(34, 34, 34);
+  --c-background-open: 34,34,34;
   --c-heading-text: white;
   --c-body-text: white;
-  
+
+  --c-terminal-text: white;
+  --c-terminal-text-blur: #c8c8c8;
   --fs-standard-small: .8rem;
   --fs-standard: 1rem;
   --fs-standard-large: 1.25rem;

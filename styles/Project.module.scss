@@ -1,3 +1,5 @@
+@use "terminal";
+
 .wrapper{
     color: white;
     width: 95%;
@@ -9,4 +11,20 @@
     position: relative;
     height: 45vh;
     width: 100%;
+}
+
+.linkBox{
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.url, .github{
+    display: block;
+    width: fit-content;
+    padding: 15px 25px;
+    font-size: var(--fs-standard-large);
+    @extend %terminal-title;
+    @extend %terminal-outline;
 }

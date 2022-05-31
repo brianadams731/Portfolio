@@ -7,6 +7,9 @@ interface IProjectFrontMatter{
     status: string;
     img: string;
     tech: string[];
+
+    url?:string;
+    githubRepo?:string;
 }
 interface FileData {
     frontMatter: IProjectFrontMatter

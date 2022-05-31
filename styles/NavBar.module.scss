@@ -1,3 +1,5 @@
+@use "terminal";
+
 @mixin carrotAnimateIn($name, $deg) {
     @keyframes #{$name} {
         0%{
@@ -43,13 +45,9 @@
             text-decoration: none;
             color: var(--c-heading-text);
             font-family: var(--font-mono-main);
-            font-size: var(--fs-standard-large);
-            &:hover {
-                cursor: pointer;
-                &::before {
-                    transform: translateY(50%) scaleX(1);
-                }
-            }
+            font-size: var(--fs-heading-small);
+
+            @extend %terminal-title;
 
             &::before {
                 position: absolute;
@@ -61,7 +59,14 @@
                 background-color: purple;
                 transform: translateY(50%) scaleX(0);
                 transform-origin: left;
-                transition: transform 0.2s ease-in-out;
+                transition: transform 0.25s ease-in-out;
+            }
+
+            &:hover {
+                cursor: pointer;
+                &::before {
+                    transform: translateY(50%) scaleX(1);
+                }
             }
         }
     }
@@ -81,6 +86,8 @@
     animation-duration: .5s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
+
+    @extend %terminal-outline
 }
 
 .carrotTop{
