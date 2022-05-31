@@ -6,7 +6,7 @@
     &::before{
         position: absolute;
         content: "";
-        height: 2px;
+        height: 100%;
         width: 100%;
         left: 0;
         bottom: 0;
@@ -14,15 +14,16 @@
         z-index: -1;
         background-color: var(--c-terminal-text);
         transform: translateY(50%) scaleX(0);
-
-        transition: transform .3s ease-in-out;
-
+        transition: transform .1s ease-in-out;
         @extend %terminal-outline;
     }
 
     &:hover{
+        color: var(--c-background);
+
         &::before{
-            transform: translateY(50%) scaleX(1);
+            transform: scaleX(1);
+            @extend %terminal-outline;
         }
     }
 }
@@ -31,43 +32,64 @@
     width: 95%;
     max-width: 1000px;
     margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 
+.wrapper p{
     font-family: var(--font-mono-main);
-    @extend %terminal-text;
+    font-size: var(--fs-standard);
     color: var(--c-terminal-text);
+    @extend %terminal-text;
+}
+
+.fieldset{
+    position: relative;
+    padding: 15px;
+    height: fit-content;
+    border: 1px solid var(--c-terminal-text);
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    .fieldText{
+        position: absolute;
+        top:0;
+        padding: 0 15px;
+        left: 5%;
+        transform: translateY(-50%);
+        background-color: var(--c-background);
+
+    }
 }
 
 .imgWrapper{
     position: relative;
     height: 45vh;
     width: 100%;
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
 
-.title{
-    font-size: var(--fs-heading-small);
-}
-
-.contentWrapper{
-
-}
-
-.linkBox{
-    display: flex;
-    gap: 45px;
-    align-items: center;
-    justify-content: center;
+    &::after{
+        @extend %terminal-lines-pseudo;
+    }
 }
 
 .url, .github{
     margin-top: 15px;
     margin-bottom: 15px;
+    padding: 5px 5px;
+    margin-left: -5px;
     display: block;
-    width: fit-content;
 
-    font-size: var(--fs-standard-large);
     @extend %terminal-title;
     @extend %underlineSlidIn;
 }
 
+.projectBreak{
+    width: 95%;
+    max-width: 1000px;
+    overflow: hidden;
+    margin: auto;
+    font-family: var(--font-mono-main);
+    font-size: var(--fs-standard);
+    color: var(--c-terminal-text);
+    @extend %terminal-text;
+}

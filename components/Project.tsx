@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 import { noLoad } from "../utils/imgLoaders";
-import type {FileData} from "../src/parseProjectMd";
+import type { FileData } from "../src/parseProjectMd";
 
 import styles from "../styles/Project.module.scss";
 import { ProjectTech } from "./ProjectTech";
@@ -10,37 +10,59 @@ interface Props {
     data: FileData;
 }
 
+const formatFieldText = (text: string) => {
+    return text.replaceAll(" ", "-").toLocaleLowerCase();
+}
+
 const Project = ({ data }: Props): JSX.Element => {
     return (
         <article className={styles.wrapper}>
-            <h1 className={styles.title}>Title: {data.frontMatter.title}</h1>
-            <p className={styles.status}>Status: {data.frontMatter.status}</p>
-            <div className={styles.imgWrapper}>
-                <Image layout="fill" objectFit="contain" src={data.frontMatter.img} loader={noLoad} unoptimized />
+            <p>{"[brian@portfolio]$ pwd"}</p>
+            <p>/home/brian/{data.frontMatter.title.replaceAll(" ", "-")}</p>
+
+            <p>{`[brian@portfolio]$ catimg ${formatFieldText(data.frontMatter.title)}.jpg`}</p>
+            <div className={styles.fieldset}>
+                <p className={styles.fieldText}>{formatFieldText(data.frontMatter.title)}.jpg</p>
+                <div className={styles.imgWrapper}>
+                    <Image layout="fill" objectFit="contain" src={data.frontMatter.img} loader={noLoad} unoptimized />
+                </div>
             </div>
-                
-            <div className={styles.contentWrapper} dangerouslySetInnerHTML={{__html:data.content}}></div>
+
+            <p>{`[brian@portfolio]$ cat ${formatFieldText(data.frontMatter.title)}.txt`}</p>
+            <div className={styles.contentWrapper} dangerouslySetInnerHTML={{ __html: data.content }}></div>
+
+            <p>{`[brian@portfolio]$ neofetch`}</p>
+            <div className={styles.fieldset}>
+                <p className={styles.fieldText}>{formatFieldText(data.frontMatter.title)}.jpg</p>
+                <ProjectTech names={data.frontMatter.tech} />
+            </div>
 
             {(data.frontMatter.url || data.frontMatter.githubRepo) &&
                 <div className={styles.linkBox}>
-                    {data.frontMatter.url && 
-                        <a  className={`${styles.url}`} href={data.frontMatter.url} target="_blank">
-                            View Project
+                    {data.frontMatter.url &&
+                        <a className={`${styles.url}`} href={data.frontMatter.url} target="_blank">
+                            {`[brian@portfolio]$`} VIEW PROJECT
                         </a>
                     }
                     {
-                        data.frontMatter.githubRepo && 
+                        data.frontMatter.githubRepo &&
                         <a className={`${styles.github}`} href={data.frontMatter.githubRepo} target="_blank">
-                            View Code
+                            {`[brian@portfolio]$`} VIEW SOURCE CODE
                         </a>
                     }
                 </div>
             }
 
-            <ProjectTech names={data.frontMatter.tech} />
-
         </article>
     )
 }
 
-export { Project };
+const ProjectBreak = () =>{
+    return (
+        <div className={styles.projectBreak}>
+            <p>{"#".repeat(100)}</p>
+        </div>
+    )
+}
+
+export { Project, ProjectBreak };

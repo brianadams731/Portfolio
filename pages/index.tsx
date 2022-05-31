@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.scss';
 
 import { getAllFilesInDir, parseProjectMd } from '../src/parseProjectMd';
 import type { FileData } from '../src/parseProjectMd';
-import { Project } from '../components/Project';
+import { Project, ProjectBreak } from '../components/Project';
 
 interface Props {
     projects: FileData[];
@@ -28,7 +28,9 @@ const Home = ({ projects }: Props): JSX.Element => {
                 <Skills />
                 <div id="projects" className={styles.projectWrapper}>
                     <h1 className={styles.projectTitle}>Projects</h1>
+                    <ProjectBreak />
                     {projects.map(project => <Project key={project.frontMatter.title} data={project} />)}
+                    <ProjectBreak />
                 </div>
             </main>
         </div>
