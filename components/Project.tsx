@@ -11,14 +11,14 @@ interface Props {
 }
 
 const formatFieldText = (text: string) => {
-    return text.replaceAll(" ", "-").toLocaleLowerCase();
+    return text?.replace(/ /g,"-")?.toLocaleLowerCase();
 }
 
 const Project = ({ data }: Props): JSX.Element => {
     return (
         <article className={styles.wrapper}>
             <p>{"[brian@portfolio]$ pwd"}</p>
-            <p>/home/brian/{data.frontMatter.title.replaceAll(" ", "-")}</p>
+            <p>/home/brian/{data.frontMatter?.title?.replace(/ /g,"-")}</p>
 
             <p>{`[brian@portfolio]$ catimg ${formatFieldText(data.frontMatter.title)}.jpg`}</p>
             <div className={styles.fieldset}>
