@@ -29,6 +29,7 @@ const GlitchedText = ({ text }: Props): JSX.Element => {
         }, 300)
 
         return () => clearInterval(determineNewState);
+        // eslint-disable-next-line
     }, [])
     return (
         <div className={styles.wrapper}>

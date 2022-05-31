@@ -24,7 +24,7 @@ const Project = ({ data }: Props): JSX.Element => {
             <div className={styles.fieldset}>
                 <p className={styles.fieldText}>{formatFieldText(data.frontMatter.title)}.jpg</p>
                 <div className={styles.imgWrapper}>
-                    <Image layout="fill" objectFit="contain" src={data.frontMatter.img} loader={noLoad} unoptimized />
+                    <Image layout="fill" objectFit="contain" src={data.frontMatter.img} loader={noLoad} alt={data.frontMatter?.title} unoptimized />
                 </div>
             </div>
 
@@ -40,13 +40,13 @@ const Project = ({ data }: Props): JSX.Element => {
             {(data.frontMatter.url || data.frontMatter.githubRepo) &&
                 <div className={styles.linkBox}>
                     {data.frontMatter.url &&
-                        <a className={`${styles.url}`} href={data.frontMatter.url} target="_blank">
+                        <a className={`${styles.url}`} href={data.frontMatter.url} target="_blank" rel="noreferrer">
                             {`[brian@portfolio]$`} VIEW PROJECT
                         </a>
                     }
                     {
                         data.frontMatter.githubRepo &&
-                        <a className={`${styles.github}`} href={data.frontMatter.githubRepo} target="_blank">
+                        <a className={`${styles.github}`} href={data.frontMatter.githubRepo} target="_blank" rel="noreferrer">
                             {`[brian@portfolio]$`} VIEW SOURCE CODE
                         </a>
                     }

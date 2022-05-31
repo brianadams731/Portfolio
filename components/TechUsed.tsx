@@ -33,7 +33,7 @@ const TechUsed = ({name}:Props):JSX.Element => {
     return(
         <div className={styles.wrapper} ref={wrapperRef}>
             <div className={styles.imgWrapper}>
-                <Image layout="fill" objectFit="contain" src={ref.current[name]?.imgURL} loader={noLoad} className={styles.imgOne} unoptimized />
+                <Image layout="fill" objectFit="contain" src={ref.current[name]?.imgURL} loader={noLoad} className={styles.imgOne} alt={ref.current[name]?.title} unoptimized />
             </div>
             <h5>{ref.current[name]?.title}</h5>
         </div>
