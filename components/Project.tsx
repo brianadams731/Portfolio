@@ -18,18 +18,18 @@ const Project = ({ data }: Props): JSX.Element => {
     return (
         <article className={styles.wrapper}>
             <p>{"[brian@portfolio]$ pwd"}</p>
-            <p>/home/brian/{data.frontMatter?.title?.replace(/ /g,"-")}</p>
+            <p className={styles.bottomBuffer}>/home/brian/{data.frontMatter?.title?.replace(/ /g,"-")}</p>
 
             <p>{`[brian@portfolio]$ catimg ${formatFieldText(data.frontMatter.title)}.jpg`}</p>
             <div className={styles.fieldset}>
                 <p className={styles.fieldText}>{formatFieldText(data.frontMatter.title)}.jpg</p>
-                <div className={styles.imgWrapper}>
+                <div className={`${styles.imgWrapper} ${styles.bottomBuffer}`}>
                     <Image layout="fill" objectFit="contain" src={data.frontMatter.img} loader={noLoad} alt={data.frontMatter?.title} unoptimized />
                 </div>
             </div>
 
             <p>{`[brian@portfolio]$ cat ${formatFieldText(data.frontMatter.title)}.txt`}</p>
-            <div className={styles.contentWrapper} dangerouslySetInnerHTML={{ __html: data.content }}></div>
+            <div className={`${styles.contentWrapper} ${styles.bottomBuffer}`} dangerouslySetInnerHTML={{ __html: data.content }}></div>
 
             <p>{`[brian@portfolio]$ neofetch`}</p>
             <div className={styles.fieldset}>

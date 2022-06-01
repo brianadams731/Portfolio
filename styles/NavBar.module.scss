@@ -43,7 +43,7 @@
         li {
             position: relative;
             text-decoration: none;
-            color: var(--c-heading-text);
+            color: var(--c-terminal-text);
             font-family: var(--font-mono-main);
             font-size: var(--fs-heading-small);
 
@@ -56,10 +56,12 @@
                 bottom: 0;
                 width: 100%;
                 height: 3px;
-                background-color: purple;
+                background-color: var(--c-terminal-text);
                 transform: translateY(50%) scaleX(0);
                 transform-origin: left;
                 transition: transform 0.25s ease-in-out;
+
+                @extend %terminal-outline;
             }
 
             &:hover {
@@ -79,7 +81,7 @@
     left: 0px;
     height: 2px;
     width: 10px;
-    background-color: white;
+    background-color: var(--c-terminal-text);
     transform-origin: right;
     transform: translate(-110%, -50%);
 

@@ -11,7 +11,7 @@ const ProjectTech = ({ names }: Props): JSX.Element => {
             {names.map(item => {
                 return (
                     <div key={item} className={styles.itemWrapper}>
-                        <TechUsed name={item} />
+                        <TechUsed name={item} hideTitle/>
                     </div>
                 )
             })}

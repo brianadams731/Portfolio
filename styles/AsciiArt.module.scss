@@ -1,0 +1,10 @@
+@use "terminal";
+
+.wrapper{
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: var(--c-terminal-text);
+    width: max-content;
+    @extend %terminal-text;
+}

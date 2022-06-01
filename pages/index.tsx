@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.scss';
 import { getAllFilesInDir, parseProjectMd } from '../src/parseProjectMd';
 import type { FileData } from '../src/parseProjectMd';
 import { Project, ProjectBreak } from '../components/Project';
+import { AsciiArt, AsciiArtSelection } from '../components/AsciiArt';
 
 interface Props {
     projects: FileData[];
@@ -27,7 +28,7 @@ const Home = ({ projects }: Props): JSX.Element => {
                 <Title />
                 <Skills />
                 <div id="projects" className={styles.projectWrapper}>
-                    <h1 className={styles.projectTitle}>Projects</h1>
+                    <AsciiArt selection={AsciiArtSelection.PROJECTS} />
                     <ProjectBreak />
                     {projects.map(project => <Project key={project.frontMatter.title} data={project} />)}
                     <ProjectBreak />

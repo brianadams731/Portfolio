@@ -6,10 +6,11 @@ import { useTech } from "../hooks/useTech";
 
 interface Props{
     name: string;
+    hideTitle?:boolean;
 }
 
 
-const TechUsed = ({name}:Props):JSX.Element => {
+const TechUsed = ({name, hideTitle}:Props):JSX.Element => {
     const [ref] = useTech();
     const wrapperRef = useRef<HTMLDivElement>(null);
     
@@ -35,7 +36,9 @@ const TechUsed = ({name}:Props):JSX.Element => {
             <div className={styles.imgWrapper}>
                 <Image layout="fill" objectFit="contain" src={ref.current[name]?.imgURL} loader={noLoad} className={styles.imgOne} alt={ref.current[name]?.title} unoptimized />
             </div>
-            <h5>{ref.current[name]?.title}</h5>
+            {!hideTitle &&
+                <h5>{ref.current[name]?.title}</h5>
+            }
         </div>
     )
 }

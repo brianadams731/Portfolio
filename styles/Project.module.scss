@@ -93,3 +93,7 @@
     color: var(--c-terminal-text);
     @extend %terminal-text;
 }
+
+.bottomBuffer{
+    margin-bottom: 15px;
+}
