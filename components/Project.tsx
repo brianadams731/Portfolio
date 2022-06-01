@@ -45,7 +45,7 @@ const Project = ({ data }: Props): JSX.Element => {
         setTimeout(()=>{
             setCurrentAnimation(Animate.CMD_PWD);
         },750)
-    }, .25, true);
+    }, .3, true);
     
     const determineVisibility = (animateValue: Animate) =>{
         return animateValue<=currentAnimation?styles.visible:styles.hidden
@@ -57,7 +57,7 @@ const Project = ({ data }: Props): JSX.Element => {
         if(animateValue> currentAnimation){
             return;
         }
-        const timePerCharacter = 0.07;
+        const timePerCharacter = 0.055;
         const animationTime = stepsCount * timePerCharacter;
         return `typeIn ${animationTime}s steps(${stepsCount}, end) forwards`;
     }
