@@ -42,7 +42,9 @@ enum Animate{
 const Project = ({ data }: Props): JSX.Element => {
     const [currentAnimation, setCurrentAnimation] = useState<Animate>(Animate.NONE);
     const [executeInView] = useExecuteWhenInView(()=>{
-        setCurrentAnimation(Animate.CMD_PWD);
+        setTimeout(()=>{
+            setCurrentAnimation(Animate.CMD_PWD);
+        },750)
     }, .25, true);
     
     const determineVisibility = (animateValue: Animate) =>{
