@@ -49,3 +49,13 @@ ul{
 
   --font-mono-main: 'Noto Sans Mono', monospace;
 }
+
+
+@keyframes typeIn{
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
