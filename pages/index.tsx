@@ -29,9 +29,7 @@ const Home = ({ projects }: Props): JSX.Element => {
                 <Skills />
                 <div id="projects" className={styles.projectWrapper}>
                     <AsciiArt selection={AsciiArtSelection.PROJECTS} />
-                    <ProjectBreak />
                     {projects.map(project => <Project key={project.frontMatter.title} data={project} />)}
-                    <ProjectBreak />
                 </div>
             </main>
         </div>
