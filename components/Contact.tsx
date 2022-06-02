@@ -45,7 +45,7 @@ const Contact = () => {
         if(animateValue> currentAnimation){
             return;
         }
-        const timePerCharacter = 0.055;
+        const timePerCharacter = 0.045;
         const animationTime = stepsCount * timePerCharacter;
         return `typeIn ${animationTime}s steps(${stepsCount}, end) forwards`;
     }
