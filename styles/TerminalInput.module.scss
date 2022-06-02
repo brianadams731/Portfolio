@@ -1,0 +1,16 @@
+@use "terminal";
+
+.input{
+    font-size: var(--fs-standard);
+    font-family: var(--font-mono-main);
+    color: var(--c-terminal-text);
+
+    @extend %terminal-text;
+}
+
+.defaultText{
+    font-size: var(--fs-standard);
+    font-family: var(--font-mono-main);
+    text-shadow: 0 0 3px rgb(233, 233, 233);
+    color: white;
+}

@@ -1,4 +1,6 @@
 @use "terminal";
+@use "meta";
+
 @keyframes cursorBlink {
   0% {
     opacity: 1;
@@ -43,11 +45,7 @@
 }
 
 .wrapper{
-    width: 95%;
-    max-width: 1000px;
-    margin: auto;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    @extend %body-width;
 }
 
 .wrapper p{

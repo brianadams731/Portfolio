@@ -5,8 +5,9 @@ import styles from '../styles/Home.module.scss';
 
 import { getAllFilesInDir, parseProjectMd } from '../src/parseProjectMd';
 import type { FileData } from '../src/parseProjectMd';
-import { Project, ProjectBreak } from '../components/Project';
+import { Project } from '../components/Project';
 import { AsciiArt, AsciiArtSelection } from '../components/AsciiArt';
+import { Contact } from '../components/Contact';
 
 interface Props {
     projects: FileData[];
@@ -31,6 +32,7 @@ const Home = ({ projects }: Props): JSX.Element => {
                     <AsciiArt selection={AsciiArtSelection.PROJECTS} />
                     {projects.map(project => <Project key={project.frontMatter.title} data={project} />)}
                 </div>
+                <Contact />
             </main>
         </div>
     );
