@@ -72,47 +72,67 @@ const Contact = () => {
 
                 setSubmitted(true);
             }}>
-                <p>
-                    <span></span>
-                    {"[brian@portfolio]$ curl"}
+                <p className={determineVisibility(Animate.NONE)}>
+                    {"[brian@portfolio]$ "}
+                    <span className={styles.wrapperSpan}>
+                        <span className={determineCursor(Animate.NONE) || determineCursor(Animate.CMD_CURL)} style={{animation:generateTypedAnimation((4), Animate.CMD_CURL)}} onAnimationEnd={(e)=>{triggerNextAnimation(e,Animate.HEADER)}}></span>
+                        {"curl"}
+                    </span>
                 </p>
                 
-                <p>
-                    <span></span>
-                    {'--header "Content-Type: application/json"'}
+                <p className={determineVisibility(Animate.HEADER)}>
+                    <span className={styles.wrapperSpan}>
+                        <span className={determineCursor(Animate.HEADER)} style={{animation:generateTypedAnimation((41), Animate.HEADER)}} onAnimationEnd={(e)=>{triggerNextAnimation(e,Animate.REQUEST)}}></span>
+                        {'--header "Content-Type: application/json"'}
+                    </span>
                 </p>
 
-                <p>
-                    <span></span>
-                    {'--request POST'}
-                </p>
-                <p>
-                    <span></span>
-                    {`--data '{`}
+                <p className={determineVisibility(Animate.REQUEST)}>
+                    <span className={styles.wrapperSpan}>
+                        <span className={determineCursor(Animate.REQUEST)} style={{animation:generateTypedAnimation((14), Animate.REQUEST)}} onAnimationEnd={(e)=>{triggerNextAnimation(e,Animate.DATA)}}></span>
+                        {'--request POST'}
+                    </span>
                 </p>
 
-                <p>
+                <p className={determineVisibility(Animate.DATA)}>
+                    <span className={styles.wrapperSpan}>
+                        <span className={determineCursor(Animate.DATA)} style={{animation:generateTypedAnimation((9), Animate.DATA)}} onAnimationEnd={(e)=>{triggerNextAnimation(e,Animate.ENDPOINT)}}></span>
+                        {`--data '{`}
+                    </span>
+                </p>
+
+                <p className={determineVisibility(Animate.SENDER_EMAIL)}>
                     <>&emsp;&emsp;</>
-                    <span></span>
-                    {'"sender_email":'}"<TerminalInput defaultText="your email here" getInputVal={setEmail} submitted={submitted} setSubmitted={setSubmitted} />"    
-                </p>
-                <p>
-                    <>&emsp;&emsp;</>
-                    <span></span>
-                    {'"sender_name":'}"<TerminalInput defaultText="your name here" getInputVal={setName} submitted={submitted} setSubmitted={setSubmitted} />"    
-                </p>
-                <p>
-                    <>&emsp;&emsp;</>
-                    <span></span>
-                    {'"message":'}"<TerminalInput defaultText="your message here" getInputVal={setMessage} submitted={submitted} setSubmitted={setSubmitted} />"    
+                    <span className={styles.wrapperSpan}>
+                        <span></span>
+                        {'"sender_email":'}"<TerminalInput defaultText="your email here" getInputVal={setEmail} submitted={submitted} setSubmitted={setSubmitted} />"    
+                    </span>
                 </p>
 
-                <p>
-                    <span></span>
-                    {`}' /api/messages`}
+                <p className={determineVisibility(Animate.SENDER_NAME)}>
+                    <>&emsp;&emsp;</>
+                    <span className={styles.wrapperSpan}>
+                        <span></span>
+                        {'"sender_name":'}"<TerminalInput defaultText="your name here" getInputVal={setName} submitted={submitted} setSubmitted={setSubmitted} />"    
+                    </span>
                 </p>
 
-                <button className={styles.sendMessage} type="submit">{"[brian@portfolio]$ SEND MESSAGE"}</button>
+                <p className={determineVisibility(Animate.MESSAGE)}>
+                    <>&emsp;&emsp;</>
+                    <span>
+                        <span></span>
+                        {'"message":'}"<TerminalInput defaultText="your message here" getInputVal={setMessage} submitted={submitted} setSubmitted={setSubmitted} />"    
+                    </span>
+                </p>
+
+                <p className={determineVisibility(Animate.ENDPOINT)}>
+                    <span className={styles.wrapperSpan}>
+                        <span className={determineCursor(Animate.ENDPOINT)} style={{animation:generateTypedAnimation((9), Animate.ENDPOINT)}} onAnimationEnd={(e)=>{triggerNextAnimation(e,Animate.SEND)}}></span>
+                        {`}' /api/messages`}
+                    </span>
+                </p>
+
+                <button className={`${styles.sendMessage} ${determineVisibility(Animate.SEND)}`} type="submit">{"[brian@portfolio]$ SEND MESSAGE"}</button>
             </form>
         </article>
     )
