@@ -2,7 +2,7 @@ import { AsciiArt, AsciiArtSelection } from "./AsciiArt"
 
 import styles from "../styles/Contact.module.scss";
 import { useExecuteWhenInView } from "../hooks/useExecuteWhenInView";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { TerminalInput } from "./TerminalInput";
 
 enum Animate{
@@ -25,6 +25,8 @@ const Contact = () => {
     const [email, setEmail] = useState<string>("");
     const [name, setName] = useState<string>("");
     const [message, setMessage] = useState<string>("");
+
+    const [submitted, setSubmitted] = useState<boolean>(false);
 
     const [currentAnimation, setCurrentAnimation] = useState<Animate>(Animate.NONE);
     const [executeInView] = useExecuteWhenInView(()=>{
@@ -59,7 +61,7 @@ const Contact = () => {
     return (
         <article id="contact" className={styles.wrapper} ref={executeInView}>
             <AsciiArt selection={AsciiArtSelection.CONTACT}/>
-            <form className={styles.form} onSubmit={(e)=>{
+            <form className={styles.form} onSubmit={async (e)=>{
                 e.preventDefault();
                 if(!email || !name || !message){
                     return;
@@ -67,6 +69,8 @@ const Contact = () => {
                 console.log(email);
                 console.log(name);
                 console.log(message);
+
+                setSubmitted(true);
             }}>
                 <p>
                     <span></span>
@@ -90,17 +94,17 @@ const Contact = () => {
                 <p>
                     <>&emsp;&emsp;</>
                     <span></span>
-                    {'"sender_email":'}"<TerminalInput defaultText="your email here" getInputVal={setEmail} />"    
+                    {'"sender_email":'}"<TerminalInput defaultText="your email here" getInputVal={setEmail} submitted={submitted} setSubmitted={setSubmitted} />"    
                 </p>
                 <p>
                     <>&emsp;&emsp;</>
                     <span></span>
-                    {'"sender_name":'}"<TerminalInput defaultText="your name here" getInputVal={setName} />"    
+                    {'"sender_name":'}"<TerminalInput defaultText="your name here" getInputVal={setName} submitted={submitted} setSubmitted={setSubmitted} />"    
                 </p>
                 <p>
                     <>&emsp;&emsp;</>
                     <span></span>
-                    {'"message":'}"<TerminalInput defaultText="your message here" getInputVal={setMessage} />"    
+                    {'"message":'}"<TerminalInput defaultText="your message here" getInputVal={setMessage} submitted={submitted} setSubmitted={setSubmitted} />"    
                 </p>
 
                 <p>

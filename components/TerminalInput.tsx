@@ -1,15 +1,26 @@
-import { Dispatch, SetStateAction, useRef } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef } from "react";
 
 import styles from "../styles/TerminalInput.module.scss";
 
 interface Props {
     defaultText: string;
+    submitted: boolean;
+    setSubmitted: Dispatch<SetStateAction<boolean>>
     getInputVal: Dispatch<SetStateAction<string>>;
 }
 
-const TerminalInput = ({ defaultText, getInputVal }: Props): JSX.Element => {
+const TerminalInput = ({ defaultText, submitted, setSubmitted, getInputVal }: Props): JSX.Element => {
     const inputRef = useRef<HTMLSpanElement>(null);
     const defaultTextRef = useRef<HTMLSpanElement>(null);
+
+    useEffect(()=>{
+        if(submitted && inputRef.current && defaultTextRef.current){
+            getInputVal("");
+            inputRef.current.innerText = "";
+            defaultTextRef.current.innerText = defaultText;           
+            setSubmitted(false);
+        }
+    },[submitted]);
 
     const blur = ()=>{
         if (!defaultTextRef.current || !inputRef.current) {
