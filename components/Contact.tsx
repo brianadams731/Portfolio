@@ -105,7 +105,7 @@ const Contact = () => {
                     <>&emsp;&emsp;</>
                     <span className={styles.wrapperSpan}>
                         <span></span>
-                        {'"sender_email":'}"<TerminalInput defaultText="your email here" getInputVal={setEmail} submitted={submitted} setSubmitted={setSubmitted} />"    
+                        {'"sender_email": "'}<TerminalInput defaultText="your email here" getInputVal={setEmail} submitted={submitted} setSubmitted={setSubmitted} />{'"'}    
                     </span>
                 </p>
 
@@ -113,7 +113,7 @@ const Contact = () => {
                     <>&emsp;&emsp;</>
                     <span className={styles.wrapperSpan}>
                         <span></span>
-                        {'"sender_name":'}"<TerminalInput defaultText="your name here" getInputVal={setName} submitted={submitted} setSubmitted={setSubmitted} />"    
+                        {'"sender_name": "'}<TerminalInput defaultText="your name here" getInputVal={setName} submitted={submitted} setSubmitted={setSubmitted} />{'"'}    
                     </span>
                 </p>
 
@@ -121,7 +121,7 @@ const Contact = () => {
                     <>&emsp;&emsp;</>
                     <span>
                         <span></span>
-                        {'"message":'}"<TerminalInput defaultText="your message here" getInputVal={setMessage} submitted={submitted} setSubmitted={setSubmitted} />"    
+                        {'"message": "'}<TerminalInput defaultText="your message here" getInputVal={setMessage} submitted={submitted} setSubmitted={setSubmitted} />{'"'}    
                     </span>
                 </p>
 

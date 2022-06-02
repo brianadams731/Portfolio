@@ -20,7 +20,7 @@ const TerminalInput = ({ defaultText, submitted, setSubmitted, getInputVal }: Pr
             defaultTextRef.current.innerText = defaultText;           
             setSubmitted(false);
         }
-    },[submitted]);
+    },[submitted, setSubmitted, defaultTextRef, inputRef, getInputVal, defaultText]);
 
     const blur = ()=>{
         if (!defaultTextRef.current || !inputRef.current) {
