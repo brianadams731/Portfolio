@@ -60,3 +60,9 @@ ul{
     transform: translateX(100%);
   }
 }
+
+@media only screen and (max-width: 400px) {
+  html{
+      font-size: 14px;
+  }
+}

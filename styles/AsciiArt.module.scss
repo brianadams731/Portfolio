@@ -8,3 +8,21 @@
     width: max-content;
     @extend %terminal-title;
 }
+
+@media only screen and (max-width: 600px) {
+    .wrapper{
+        font-size: 9px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .wrapper{
+        font-size: 7px;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    .wrapper{
+        font-size: 6px;
+    }
+}

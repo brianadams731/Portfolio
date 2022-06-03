@@ -29,3 +29,11 @@
         transform: scale(1.1);
     }
 }
+
+@media only screen and (max-width: 500px) {
+    .wrapper{
+        h5{
+            font-size: var(--fs-standard); 
+        }
+    }
+}

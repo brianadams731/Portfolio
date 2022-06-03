@@ -6,3 +6,23 @@
     column-gap: 50px;
     row-gap: 25px;
 }
+
+@media only screen and (max-width: 800px) {
+    .wrapper{
+        grid-template-columns: 100px 100px 100px 100px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .wrapper{
+        grid-template-columns: 100px 100px 100px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .wrapper{
+        column-gap: 50px;
+        row-gap: 15px;
+        grid-template-columns: 65px 65px 65px;
+    }
+}

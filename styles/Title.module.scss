@@ -37,3 +37,11 @@
         font-family: var(--font-mono-main);
     }
 }
+
+@media only screen and (max-width: 550px) {
+    .wrapper{
+        h5{
+            font-size: var(--fs-standard-large);
+        }
+    }
+}
