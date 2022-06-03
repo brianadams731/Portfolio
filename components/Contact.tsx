@@ -66,11 +66,24 @@ const Contact = () => {
                 if(!email || !name || !message){
                     return;
                 }
-                console.log(email);
-                console.log(name);
-                console.log(message);
+                const res = await fetch("/api/message", {
+                    method: "POST",
+                    headers: {
+                      'Accept': 'application/json',
+                      'Content-Type':'application/json'
+                    },
+                    body: JSON.stringify({
+                        email,
+                        name,
+                        message
+                    }),
+                })
+                if(res.ok){
+                    setSubmitted(true);
+                }else{
+                    console.log(res);
+                }
 
-                setSubmitted(true);
             }}>
                 <p className={determineVisibility(Animate.NONE)}>
                     {"[brian@portfolio]$ "}
