@@ -17,6 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             message: req.body.message
         }),
     })
-    
+    res.status(messageRes.status);
+    req.headers['content-type'] && res.setHeader("Content-Type", req.headers['content-type']);   
     res.status(messageRes.status).send(messageRes.body);
 }

@@ -101,3 +101,9 @@
 .carrotBottom{
     animation-name: bottomIn;
 }
+
+@media only screen and (max-width: 400px) {
+    .wrapper{
+        display: none;
+    }
+  }
