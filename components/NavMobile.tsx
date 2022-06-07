@@ -62,7 +62,12 @@ const NavMobile = ({ currentLoc }: Props): JSX.Element => {
                 }
             }}>
                 <div className={`${styles.topLine} ${determineHamburgerAnimation("top")}`} 
-                    onAnimationStart={()=>setCanToggle(false)} onAnimationEnd={()=>setCanToggle(true)}></div>
+                    onAnimationStart={()=>setCanToggle(false)} onAnimationEnd={(e)=>{
+                        setCanToggle(true)
+                        if(e.animationName.includes("Close")){
+                            setMenuState(MenuState.CLOSED);
+                        }
+                    }}></div>
                 <div className={`${styles.middleLine} ${determineHamburgerAnimation("middle")}`}></div>
                 <div className={`${styles.bottomLine} ${determineHamburgerAnimation("bottom")}`}></div>                
             </div>
@@ -73,10 +78,6 @@ const NavMobile = ({ currentLoc }: Props): JSX.Element => {
                         return;
                     }
                     setMenuState(MenuState.CLOSING);
-                }} onAnimationEnd={(e)=>{
-                    if(e.animationName.includes("middleOpen")){                        
-                        setMenuState(MenuState.CLOSED);
-                    }
                 }}>
 
                     <div className={`${styles.menuWrapper} ${determineMenuAnimation()}`} onClick={(e)=>e.stopPropagation()}>

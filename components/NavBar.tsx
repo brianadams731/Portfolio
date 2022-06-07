@@ -10,7 +10,7 @@ import { NavMobile } from "./NavMobile";
 const NavBar = (): JSX.Element => {
     const router = useRouter();
     const [currentLoc, setCurrentLoc] = useState<Selection | null>(null);
-    const [showMobile, setShowMobile] = useState<boolean>(false);
+    const [showMobile, setShowMobile] = useState<boolean | null>(null);
 
     const determineLayout = () => {
         const mobileBreakPoint = 650;
@@ -36,6 +36,10 @@ const NavBar = (): JSX.Element => {
             setCurrentLoc(Selection.HOME);
         }
     }, [router.asPath])
+
+    if(showMobile === null){
+        return <div></div>
+    }
 
     return showMobile ? <NavMobile currentLoc={currentLoc} /> : <NavDesktop currentLoc={currentLoc} />;
 }

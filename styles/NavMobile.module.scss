@@ -1,6 +1,6 @@
 @use "terminal";
 
-$animationDuration: .3s;
+$animationDuration: .4s;
 
 
 @mixin animateOpen($name, $finalAngle) {
