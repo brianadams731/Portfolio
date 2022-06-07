@@ -1,0 +1,213 @@
+@use "terminal";
+
+$animationDuration: .3s;
+
+
+@mixin animateOpen($name, $finalAngle) {
+    @keyframes #{$name} {
+        50%{
+            top:50%;
+            transform: translateY(-50%);
+        }
+
+        100%{
+            top:50%;
+            transform: translateY(-50%) rotate($finalAngle);
+            background-color: var(--c-terminal-alter)
+        }
+    }
+}
+
+@mixin animateClose($name, $initTop, $initTransform, $initDeg) {
+    @keyframes #{$name} {
+        0%{
+            top: 50%;
+            transform: translateY(-50%) rotate($initDeg);
+        }
+        50%{
+            top:50%;
+            transform: translateY(-50%) rotate(0deg);
+        }
+        100%{
+            top:$initTop;
+            transform: $initTransform;
+            background-color: var(--c-terminal-text);
+        }
+    }
+}
+
+@mixin classAnimation($name) {
+    .#{$name}Open{
+        animation: #{$name}Open $animationDuration ease-in-out forwards;
+    }
+    .#{$name}Close{
+        animation: #{$name}Close $animationDuration ease-in-out forwards;
+    }
+}
+
+@include animateOpen(topOpen, 45deg);
+@include animateClose(topClose, 0%, translateY(0%), 45deg);
+
+@include animateOpen(bottomOpen, -45deg);
+@include animateClose(bottomClose, 100%, translateY(-100%), -45deg);
+
+@keyframes middleClose{
+    from {
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes middleOpen{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+@include classAnimation(top);
+@include classAnimation(middle);
+@include classAnimation(bottom);
+
+@keyframes slideIn {
+    from{
+        transform: translateX(110%);
+    }
+    to{
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slideOut {
+    from{
+        transform: translateX(0%);
+    }
+    to{
+        transform: translateX(110%);
+    }
+}
+
+.hamburgerWrapper{    
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 100;
+
+    height: 23px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 40px;
+
+    div{
+        position: absolute;
+        left: 0;
+        border-radius: 15px;
+        width: 100%;
+        height: 3.5px;
+        background-color: var(--c-terminal-text);
+        transform-origin: center;
+
+        @extend %terminal-outline;
+    }
+
+    .topLine{
+        top: 0;
+    }
+    .middleLine{
+        top:50%;
+        transform: translateY(-50%);
+    }
+    .bottomLine{
+        top: 100%;
+        transform: translateY(-100%);
+    }
+}
+
+.fadeIn {
+    animation: middleClose $animationDuration ease-in-out forwards;
+}
+.fadeOut {
+    animation: middleOpen $animationDuration ease-in-out forwards;
+}
+
+.slideIn{
+    animation: slideIn $animationDuration ease-in-out forwards;
+}
+.slideOut{
+    animation: slideOut $animationDuration ease-in-out forwards;
+}
+
+.menuBackground{
+    position: fixed;
+    z-index: 99;
+    top:0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0,0,0,.5);
+}
+
+.menuWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    right: 0;
+    top:0;
+    background-color: black;
+    height: 100%;
+    min-width: 55%;
+    
+    span{
+        position: relative;
+    }
+
+    ul {
+        margin-top: -25vh;
+        display: flex;
+        flex-direction: column;
+        gap: 7vh;
+
+        align-items: center;
+        justify-content: center;
+
+        text-decoration: none;
+
+        li {
+            position: relative;
+            text-decoration: none;
+            color: var(--c-terminal-text);
+            font-family: var(--font-mono-main);
+            font-size: var(--fs-heading-small);
+
+            @extend %terminal-title;
+
+            &::before {
+                position: absolute;
+                content: '';
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 3px;
+                background-color: var(--c-terminal-text);
+                transform: translateY(50%) scaleX(0);
+                transform-origin: left;
+                transition: transform 0.25s ease-in-out;
+
+                @extend %terminal-outline;
+            }
+
+            &:hover {
+                cursor: pointer;
+                &::before {
+                    transform: translateY(50%) scaleX(1);
+                }
+            }
+        }
+    }
+}

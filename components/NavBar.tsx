@@ -1,27 +1,27 @@
-import Link from "next/link";
+import { Selection } from "./NavCarrot";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import styles from "../styles/NavBar.module.scss";
+import { useIsomorphicLayoutEffect } from "../hooks/useIsomorphicLayoutEffect";
 
-const Carrot = () => {
-    return (
-        <>
-            <div className={styles.carrotTop}></div>
-            <div className={styles.carrotBottom}></div>
-        </>
-    )
-}
+import { NavDesktop } from "./NavDesktop";
+import { NavMobile } from "./NavMobile";
 
-enum Selection {
-    HOME,
-    SKILLS,
-    PROJECTS,
-    CONTACT
-}
 
 const NavBar = (): JSX.Element => {
     const router = useRouter();
     const [currentLoc, setCurrentLoc] = useState<Selection | null>(null);
+    const [showMobile, setShowMobile] = useState<boolean>(false);
+
+    const determineLayout = () => {
+        const mobileBreakPoint = 650;
+        setShowMobile(window.innerWidth < mobileBreakPoint);
+    }
+
+    useIsomorphicLayoutEffect(() => {
+        determineLayout();
+        window.addEventListener("resize", determineLayout);
+        return () => window.addEventListener("resize", determineLayout);
+    }, [])
 
     useEffect(() => {
         if (router.asPath.includes("home")) {
@@ -32,21 +32,12 @@ const NavBar = (): JSX.Element => {
             setCurrentLoc(Selection.PROJECTS);
         } else if (router.asPath.includes("contact")) {
             setCurrentLoc(Selection.CONTACT);
-        }else{
+        } else {
             setCurrentLoc(Selection.HOME);
         }
     }, [router.asPath])
 
-    return (
-        <header className={styles.wrapper}>
-            <ul>
-                <span>{currentLoc===Selection.HOME &&<Carrot />}<Link href="#home"><li className={styles.carrot}>Home</li></Link></span>
-                <span>{currentLoc===Selection.SKILLS &&<Carrot />}<Link href="#skills"><li>Skills</li></Link></span>
-                <span>{currentLoc===Selection.PROJECTS &&<Carrot />}<Link href="#projects"><li>Projects</li></Link></span>
-                <span>{currentLoc===Selection.CONTACT &&<Carrot />}<Link href="#contact"><li>Contact</li></Link></span>
-            </ul>
-        </header>
-    )
+    return showMobile ? <NavMobile currentLoc={currentLoc} /> : <NavDesktop currentLoc={currentLoc} />;
 }
 
 export { NavBar };

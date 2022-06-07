@@ -1,0 +1,49 @@
+@use "terminal";
+
+@mixin carrotAnimateIn($name, $deg) {
+    @keyframes #{$name} {
+        0%{
+            opacity: 0;
+            transform: translate(0%, -50%) rotate(0deg);
+        }
+        45%{
+            opacity: 1;
+            transform: translate(-150%, -50%) rotate(0deg);
+        }
+        55%{
+            transform: translate(-150%, -50%) rotate(0deg);
+        }
+        100%{
+            transform: translate(-150%, -50%) rotate($deg);
+        }
+    }
+}
+
+@include carrotAnimateIn("topIn", 35deg);
+@include carrotAnimateIn("bottomIn", -35deg);
+
+.carrotTop,
+.carrotBottom {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    height: 2px;
+    width: 10px;
+    background-color: var(--c-terminal-text);
+    transform-origin: right;
+    transform: translate(-110%, -50%);
+
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    @extend %terminal-outline
+}
+
+.carrotTop{
+    animation-name: topIn;
+}
+
+.carrotBottom{
+    animation-name: bottomIn;
+}
