@@ -5,12 +5,12 @@ img: /projects/elderlaw.jpg
 url: https://elderlaw.netlify.app/
 githubRepo: https://www.google.com/
 tech:
-- express
-- html
-- node
-- postgres
+- javascript
 - react
-- scss
-- typescript
+- express
+- python
+- flask
+- html
+- css
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Euismod quis viverra nibh cras. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Ipsum faucibus vitae aliquet nec ullamcorper sit amet risus. Nisl nisi scelerisque eu ultrices vitae. Orci ac auctor augue mauris augue neque gravida. Sit amet aliquam id diam. Laoreet id donec ultrices tincidunt arcu non sodales neque sodales. Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque sit. Porta nibh venenatis cras sed felis eget velit aliquet sagittis. Eget arcu dictum varius duis. Neque aliquam vestibulum morbi blandit cursus. Enim ut sem viverra aliquet eget sit amet tellus cras.
+This is an application used to onboard new clients at a local law office, that is currently being used in production today. This is a complex form featuring 7 pages of various form elements, including 2 dynamic fields that expand to add more fields if needed. This application is animated with Framer Motion, which gives the progress bar and card animations a more polished and natural feel. This application leverages React Hook Forms which helps with form validation and dynamic elements. The onboarding application uses a Flask backend which parses the data collected into a shape the client desires, as well as notifies and serves the data to the attorney when a potential client submits the form.

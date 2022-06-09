@@ -14,6 +14,10 @@ const useTech = (): [MutableRefObject<MappedObj>] => {
             imgURL: "/logos/ts.svg",
             title: "TypeScript"
         },
+        javascript: {
+            imgURL: "/logos/js.svg",
+            title: "JavaScript"
+        },
         next: {
             imgURL: "/logos/next.svg",
             title: "NextJS"
