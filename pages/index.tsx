@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.scss';
 
 import { getAllFilesInDir, parseProjectMd } from '../src/parseProjectMd';
 import type { FileData } from '../src/parseProjectMd';
-import { Project } from '../components/Project';
+import { Project, ProjectBreak } from '../components/Project';
 import { AsciiArt, AsciiArtSelection } from '../components/AsciiArt';
 import { Contact } from '../components/Contact';
 
@@ -30,7 +30,14 @@ const Home = ({ projects }: Props): JSX.Element => {
                 <Skills />
                 <div id="projects" className={styles.projectWrapper}>
                     <AsciiArt selection={AsciiArtSelection.PROJECTS} />
-                    {projects.map(project => <Project key={project.frontMatter.title} data={project} />)}
+                    {projects.map((project, index) => {
+                        return (
+                            <>
+                                <Project key={project.frontMatter.title} data={project} />
+                                {index !== (projects.length-1) && <ProjectBreak /> }
+                            </>
+                        )
+                    })}
                 </div>
                 <Contact />
             </main>
