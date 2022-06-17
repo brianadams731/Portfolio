@@ -32,10 +32,10 @@ const Home = ({ projects }: Props): JSX.Element => {
                     <AsciiArt selection={AsciiArtSelection.PROJECTS} />
                     {projects.map((project, index) => {
                         return (
-                            <>
-                                <Project key={project.frontMatter.title} data={project} />
+                            <div key={project.frontMatter.title}>
+                                <Project data={project} />
                                 {index !== (projects.length-1) && <ProjectBreak /> }
-                            </>
+                            </div>
                         )
                     })}
                 </div>
