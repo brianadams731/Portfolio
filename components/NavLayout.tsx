@@ -1,3 +1,4 @@
+import { Footer } from "./Footer";
 import { NavBar } from "./NavBar";
 
 interface LayoutProps{
@@ -9,6 +10,7 @@ const NavLayout = ({ children }:LayoutProps):JSX.Element => {
         <>
             <NavBar />
             <main>{children}</main>
+            <Footer />
         </>
     )
 }

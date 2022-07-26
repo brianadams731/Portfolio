@@ -1,0 +1,34 @@
+@use "terminal";
+
+.wrapper{
+    padding: 50px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.social{
+    width: 50px;
+    height: 50px;
+    fill: var(--c-terminal-green);
+    transition: all .05s ease-in-out;
+    &:hover {
+        cursor: pointer;
+        fill: var(--c-terminal-alter);
+    }
+    &:active{
+        fill: var(--c-terminal-green);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .wrapper{
+        padding: 30px 0px;
+        gap: 25px;
+    }
+    .social{
+        width: 40px;
+        height: 40px;
+    }
+}
