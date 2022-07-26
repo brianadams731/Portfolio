@@ -33,7 +33,7 @@ const Contact = () => {
         setTimeout(()=>{
             setCurrentAnimation(Animate.CMD_CURL);
         },750)
-    }, .3, true);
+    }, .2, true);
     
     const determineVisibility = (animateValue: Animate) =>{
         return animateValue<=currentAnimation?styles.visible:styles.hidden

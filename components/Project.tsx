@@ -45,7 +45,7 @@ const Project = ({ data }: Props): JSX.Element => {
         setTimeout(()=>{
             setCurrentAnimation(Animate.CMD_PWD);
         },750)
-    }, .3, true);
+    }, .1, true);
     
     const determineVisibility = (animateValue: Animate) =>{
         return animateValue<=currentAnimation?styles.visible:styles.hidden
