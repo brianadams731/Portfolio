@@ -3,7 +3,7 @@ title: Platformer
 status: Complete
 img: /projects/platformer.jpg
 url: https://platformer413.netlify.app
-githubRepo: https://github.com/brianadams731/platformer
+githubRepo: https://github.com/brianadams731/Platformer
 tech:
 - typescript
 - python

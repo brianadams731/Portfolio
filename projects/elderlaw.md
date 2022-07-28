@@ -3,7 +3,7 @@ title: Elder Law Form
 status: Complete
 img: /projects/elderlaw.jpg
 url: https://elderlaw.netlify.app/
-githubRepo: https://www.google.com/
+githubRepo: https://github.com/brianadams731/elderform
 tech:
 - javascript
 - react

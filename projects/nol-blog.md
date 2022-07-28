@@ -3,7 +3,7 @@ title: nol-blog
 status: Complete
 img: /projects/nol.jpg
 url: https://nol-blog.vercel.app/
-githubRepo: https://www.google.com/
+githubRepo: https://github.com/brianadams731/nol-blog
 tech:
 - typescript
 - next
