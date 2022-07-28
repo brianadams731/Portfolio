@@ -68,6 +68,10 @@
     &::after{
         @extend %terminal-lines-pseudo;
     }
+
+    &:hover{
+        cursor: pointer;
+    }
 }
 
 .url, .github{

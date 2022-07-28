@@ -87,7 +87,12 @@ const Project = ({ data }: Props): JSX.Element => {
             </p>
             <div className={`${styles.fieldset} ${determineVisibility(Animate.IMG_BOX)}`}>
                 <p className={styles.fieldText}>{formatFieldText(data.frontMatter.title)}.jpg</p>
-                <div className={`${styles.imgWrapper} ${styles.bottomBuffer}`}>
+                <div className={`${styles.imgWrapper} ${styles.bottomBuffer}`} onClick={()=>{
+                    if(!data.frontMatter.url){
+                        return;
+                    }
+                    window.open(data.frontMatter.url, '_blank')?.focus();
+                }}>
                     <Image layout="fill" objectFit="contain" src={data.frontMatter.img} loader={noLoad} alt={data.frontMatter?.title} unoptimized />
                 </div>
             </div>
