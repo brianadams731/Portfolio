@@ -32,7 +32,7 @@ const Contact = () => {
     const [executeInView] = useExecuteWhenInView(()=>{
         setTimeout(()=>{
             setCurrentAnimation(Animate.CMD_CURL);
-        },750)
+        },350)
     }, .2, true);
     
     const determineVisibility = (animateValue: Animate) =>{
@@ -45,7 +45,7 @@ const Contact = () => {
         if(animateValue> currentAnimation){
             return;
         }
-        const timePerCharacter = 0.038;
+        const timePerCharacter = 0.032;
         const animationTime = stepsCount * timePerCharacter;
         return `typeIn ${animationTime}s steps(${stepsCount}, end) forwards`;
     }
@@ -54,7 +54,7 @@ const Contact = () => {
         if(event.animationName === "typeIn"){
             setTimeout(()=>{
                 setCurrentAnimation(animationToTrigger);
-            }, 450)
+            }, 350)
         }
     }
 
