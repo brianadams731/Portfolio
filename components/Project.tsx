@@ -44,8 +44,8 @@ const Project = ({ data }: Props): JSX.Element => {
     const [executeInView] = useExecuteWhenInView(()=>{
         setTimeout(()=>{
             setCurrentAnimation(Animate.CMD_PWD);
-        },750)
-    }, .1, true);
+        },300)
+    }, .11, true);
     
     const determineVisibility = (animateValue: Animate) =>{
         return animateValue<=currentAnimation?styles.visible:styles.hidden
@@ -57,7 +57,7 @@ const Project = ({ data }: Props): JSX.Element => {
         if(animateValue> currentAnimation){
             return;
         }
-        const timePerCharacter = 0.045;
+        const timePerCharacter = 0.036;
         const animationTime = stepsCount * timePerCharacter;
         return `typeIn ${animationTime}s steps(${stepsCount}, end) forwards`;
     }
@@ -66,7 +66,7 @@ const Project = ({ data }: Props): JSX.Element => {
         if(event.animationName === "typeIn"){
             setTimeout(()=>{
                 setCurrentAnimation(animationToTrigger);
-            }, 450)
+            }, 300)
         }
     }
     return (
