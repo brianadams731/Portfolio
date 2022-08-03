@@ -113,7 +113,7 @@ const Project = ({ data }: Props): JSX.Element => {
                 </span>
             </p>
             <div className={`${styles.fieldset} ${determineVisibility(Animate.SKILLS_BOX)}`}>
-                <p className={styles.fieldText}>{formatFieldText(data.frontMatter.title)}.jpg</p>
+                <p className={styles.fieldText}>Built With</p>
                 <ProjectTech names={data.frontMatter.tech} />
             </div>
 

@@ -3,16 +3,27 @@
     justify-content: center;
     align-items: center;
     margin: auto;
-    gap: 35px;
+    gap: 32px;
     flex-wrap: wrap;
 
     max-width: 90%;
 }
 
 .itemWrapper{
-    width: 65px;
+    width: 55px;
     h5{
         margin-top: -5px;
         font-size: var(--fs-standard-small);
+    }
+}
+
+@media only screen and (max-width: 550px){
+    .wrapper{
+        column-gap: 15px;
+        row-gap: 0px;
+    }
+    .itemWrapper{
+        margin: -10px 0px;
+        width: 40px;
     }
 }
