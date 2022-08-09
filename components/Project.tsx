@@ -87,7 +87,7 @@ const Project = ({ data }: Props): JSX.Element => {
             </p>
             <div className={`${styles.fieldset} ${determineVisibility(Animate.IMG_BOX)}`}>
                 <p className={styles.fieldText}>{formatFieldText(data.frontMatter.title)}.jpg</p>
-                <div className={`${styles.imgWrapper} ${styles.bottomBuffer}`} onClick={()=>{
+                <div className={`${styles.imgWrapper} ${styles.bottomBuffer} ${data.frontMatter.url?styles.pointer:""}`} onClick={()=>{
                     if(!data.frontMatter.url){
                         return;
                     }
