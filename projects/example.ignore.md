@@ -4,6 +4,7 @@ status: Complete
 img: /projects/sidescroller.jpg
 url: https://www.google.com/
 githubRepo: https://www.google.com/
+priority: 100
 tech:
 - css
 - express

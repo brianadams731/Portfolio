@@ -4,6 +4,7 @@ status: Complete
 img: /projects/nol.jpg
 url: https://nol-blog.vercel.app/
 githubRepo: https://github.com/brianadams731/nol-blog
+priority: 4
 tech:
 - typescript
 - next

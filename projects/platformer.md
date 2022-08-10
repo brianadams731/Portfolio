@@ -4,6 +4,7 @@ status: Complete
 img: /projects/platformer.jpg
 url: https://platformer413.netlify.app
 githubRepo: https://github.com/brianadams731/Platformer
+priority: 3
 tech:
 - typescript
 - python

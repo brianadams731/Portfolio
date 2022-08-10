@@ -4,6 +4,7 @@ status: Complete
 img: /projects/elderlaw.jpg
 url: https://elderlaw.netlify.app/
 githubRepo: https://github.com/brianadams731/elderform
+priority: 5
 tech:
 - javascript
 - react

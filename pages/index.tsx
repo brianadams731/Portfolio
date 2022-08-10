@@ -49,6 +49,15 @@ export async function getStaticProps() {
     const mdDir = 'projects/';
     const filePaths = await getAllFilesInDir(mdDir)
     const mdData = await Promise.all(filePaths.map((path) => parseProjectMd(path)));
+    mdData.sort((a,b)=>{
+        if(!a.frontMatter.priority){
+            return 1;
+        }else if(!b.frontMatter.priority){
+            return -1;
+        }
+        return a.frontMatter.priority - b.frontMatter.priority;
+    })
+    
     return {
         props: {
             projects: mdData,

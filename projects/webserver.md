@@ -3,6 +3,7 @@ title: WebServer
 status: Complete
 img: /projects/webserver.jpg
 githubRepo: https://github.com/brianadams731/Web-Server
+priority: 2
 tech:
 - java
 ---

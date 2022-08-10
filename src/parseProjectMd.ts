@@ -8,8 +8,9 @@ interface IProjectFrontMatter{
     img: string;
     tech: string[];
 
-    url?:string;
-    githubRepo?:string;
+    url?: string;
+    githubRepo?: string;
+    priority?: number;
 }
 interface FileData {
     frontMatter: IProjectFrontMatter
