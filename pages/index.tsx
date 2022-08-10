@@ -19,10 +19,6 @@ const Home = ({ projects }: Props): JSX.Element => {
         <div className={styles.wrapper}>
             <Head>
                 <title>Brian Adams</title>
-                <meta
-                    name="description"
-                    content="Brian Adams portfolio"
-                />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
@@ -34,7 +30,7 @@ const Home = ({ projects }: Props): JSX.Element => {
                         return (
                             <div key={project.frontMatter.title}>
                                 <Project data={project} />
-                                {index !== (projects.length-1) && <ProjectBreak /> }
+                                {index !== (projects.length - 1) && <ProjectBreak />}
                             </div>
                         )
                     })}
@@ -49,18 +45,18 @@ export async function getStaticProps() {
     const mdDir = 'projects/';
     const filePaths = await getAllFilesInDir(mdDir)
     const mdData = await Promise.all(filePaths.map((path) => parseProjectMd(path)));
-    mdData.sort((a,b)=>{
-        if(!a.frontMatter.priority){
-            return 1;
-        }else if(!b.frontMatter.priority){
-            return -1;
+    const parsedData = mdData.map((item) => {
+        if (!item.frontMatter.priority) {
+            item.frontMatter.priority = 1000;
         }
-        return a.frontMatter.priority - b.frontMatter.priority;
+        return item;
+    }).sort((a, b) => {
+        return a.frontMatter.priority! - b.frontMatter.priority!;
     })
-    
+
     return {
         props: {
-            projects: mdData,
+            projects: parsedData,
         },
     };
 }
