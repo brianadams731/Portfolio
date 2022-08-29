@@ -101,7 +101,7 @@ const Project = ({ data }: Props): JSX.Element => {
                 <span className={styles.wrapperSpan}>
                 <span className={determineCursor(Animate.CMD_DESCRIPTION)} style={{animation:generateTypedAnimation((8 + formatFieldText(data.frontMatter.title).length), Animate.CMD_DESCRIPTION)}} onAnimationEnd={(e)=>{triggerNextAnimation(e,Animate.CMD_SKILLS)}}></span>
 
-                    {`cat ${formatFieldText(data.frontMatter.title)}.txt`}
+                    {`cat ${formatFieldText(data.frontMatter.title)}.md`}
                 </span>
             </p>
             <div className={`${styles.contentWrapper} ${styles.bottomBuffer} ${determineVisibility(Animate.DESCRIPTION_BOX)}`} dangerouslySetInnerHTML={{ __html: data.content }}></div>
